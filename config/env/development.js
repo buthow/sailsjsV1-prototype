@@ -328,7 +328,7 @@ module.exports = {
    * this, just try deploying without setting it and see if it works.)       *
    *                                                                         *
    ***************************************************************************/
-  port: 8888,
+  port: process.env.PORT,
 
 
   /**************************************************************************
