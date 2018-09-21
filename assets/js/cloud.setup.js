@@ -18,6 +18,7 @@ Cloud.setup({
     'logout': { 'verb': 'GET', 'url': '/api/v1/account/logout', 'args': [] },
     'updatePassword': { 'verb': 'PUT', 'url': '/api/v1/account/update-password', 'args': ['password'] },
     'updateProfile': { 'verb': 'PUT', 'url': '/api/v1/account/update-profile', 'args': ['fullName', 'emailAddress'] },
+    'listJob': { 'verb': 'GET', 'url': '/api/v1/entrance/view-list-job', 'args': [] },
     'postJob': { 'verb': 'POST', 'url': '/api/v1/account/post-job', 'args': ['jobTitle', 'jobLocation', 'jobDate', 'jobStatus', 'jobDescription'] },
     'updateBillingCard': {
       'verb': 'PUT',
