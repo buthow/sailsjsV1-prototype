@@ -1,0 +1,69 @@
+<div id="post-job" v-cloak>
+  <div class="container">
+    <h1>Post Job</h1>
+    <hr/>
+    <ajax-form action="postJob" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group" >
+            <label for="job-title">Title</label>
+            <input class="form-control" id="job-title" name="job-title" type="text"  :class="[formErrors.jobTitle ? 'is-invalid' : '']" v-model.trim="formData.jobTitle" placeholder="Software Engineer" autocomplete="organization-title" focus-first>
+            <div class="invalid-feedback" v-if="formErrors.jobTitle">Please enter the title.</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="job-location">Location</label>
+            <input class="form-control" id="job-location" name="job-location" type="text"  :class="[formErrors.jobLocation ? 'is-invalid' : '']" v-model.trim="formData.jobLocation" placeholder="Kuala Lumpur" autocomplete="none">
+            <div class="invalid-feedback" v-if="formErrors.jobLocation">Please enter a location.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group" >
+            <label for="job-date">Date</label>
+            <input class="form-control" id="job-date" name="job-date" type="date"  :class="[formErrors.jobDate ? 'is-invalid' : '']" v-model.trim="formData.jobDate" focus-first>
+            <div class="invalid-feedback" v-if="formErrors.jobDate">Please enter the date.</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="job-status">Status</label>
+            <select class="form-control" id="job-status" name="job-status" :class="[formErrors.jobStatus ? 'is-invalid' : '']" v-model="formData.jobStatus" :selected="1">
+              <option value="1" selected>Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="jobDescription">Description</label>
+            <textarea class="form-control" id="jobDescription" name="jobDescription" :class="[formErrors.jobDescription ? 'is-invalid' : '']"
+                      v-model.trim="formData.jobDescription"
+                      placeholder="Job is for Software Engineers"
+                      autocomplete="none"></textarea>
+            <div class="invalid-feedback" v-if="formErrors.jobDescription">Description cannot be empty.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 ">
+          <p class="text-danger" v-if="cloudError === 'emailAlreadyInUse'">Nope nope.</p>
+          <p class="text-danger" v-else-if="cloudError">An error occured while processing your request. Please check
+            your information and try again.</p>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+            <a class="btn btn-outline-info" href="/">Cancel</a>
+            <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Post Job</ajax-button>
+          </div>
+        </div>
+      </div>
+    </ajax-form>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
