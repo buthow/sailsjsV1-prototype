@@ -371,7 +371,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://pulsify-dev.ap-southeast-1.elasticbeanstalk.com',
+    baseUrl: 'http://pulsify-dev.ap-southeast-1.elasticbeanstalk.com',
     internalEmailAddress: 'support@example.com',
 
     // mailgunDomain: 'mg.example.com',
