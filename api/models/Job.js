@@ -19,6 +19,12 @@ module.exports = {
       example: 'Software Engineer'
     },
 
+    date: {
+      required: true,
+      type: 'string',
+      example: '1537350262570',
+    },
+
     location: {
       type: 'string',
       description: `Job Location`,

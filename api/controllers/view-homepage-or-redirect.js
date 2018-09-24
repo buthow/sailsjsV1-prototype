@@ -29,7 +29,10 @@ module.exports = {
       throw {redirect:'/welcome'};
     }
 
-    return exits.success();
+    // Get active jobs
+    let getJobs = await Job.find({ status: 1 });
+
+    return exits.success({ data: getJobs });
 
   }
 
